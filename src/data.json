@@ -1,127 +1,178 @@
 [
     {
-        "questionType": "default",
-        "questionText": "1. Lorem ipsum default",
-        "tags": []
-    },
-    {
         "questionType": "free",
-        "questionText": "2. Lorem ipsum free",
-        "tags": []
-    },
-    {
-        "questionType": "twist",
-        "questionText": "3. Lorem ipsum twist",
-        "tags": []
-    },
-    {
-        "questionType": "default",
-        "questionText": "4. Lorem ipsum default",
-        "tags": []
-    },
-    {
-        "questionType": "free",
-        "questionText": "5. Lorem ipsum free",
-        "tags": []
-    },
-    {
-        "questionType": "twist",
-        "questionText": "6. Lorem ipsum twist",
-        "tags": []
+        "questionText": "FREE!",
+        "tags": [
+            "ice-breaker",
+            "free"
+        ]
     },
     {
         "questionType": "default",
-        "questionText": "7. Lorem ipsum default",
-        "tags": []
-    },
-    {
-        "questionType": "free",
-        "questionText": "8. Lorem ipsum free",
-        "tags": []
-    },
-    {
-        "questionType": "twist",
-        "questionText": "9. Lorem ipsum twist",
-        "tags": []
+        "questionText": "Has more than one pet",
+        "tags": [
+            "ice-breaker"
+        ]
     },
     {
         "questionType": "default",
-        "questionText": "10. Lorem ipsum default",
-        "tags": []
-    },
-    {
-        "questionType": "free",
-        "questionText": "11. Lorem ipsum free",
-        "tags": []
-    },
-    {
-        "questionType": "twist",
-        "questionText": "12. Lorem ipsum twist",
-        "tags": []
+        "questionText": "Is willing to sing the lyrics to a popular song now",
+        "tags": [
+            "ice-breaker"
+        ]
     },
     {
         "questionType": "default",
-        "questionText": "13. Lorem ipsum default",
-        "tags": []
-    },
-    {
-        "questionType": "free",
-        "questionText": "14. Lorem ipsum free",
-        "tags": []
-    },
-    {
-        "questionType": "twist",
-        "questionText": "15. Lorem ipsum twist",
-        "tags": []
+        "questionText": "Owns more than 10 of a specific object",
+        "tags": [
+            "ice-breaker"
+        ]
     },
     {
         "questionType": "default",
-        "questionText": "16. Lorem ipsum default",
-        "tags": []
-    },
-    {
-        "questionType": "free",
-        "questionText": "17. Lorem ipsum free",
-        "tags": []
-    },
-    {
-        "questionType": "twist",
-        "questionText": "18. Lorem ipsum twist",
-        "tags": []
+        "questionText": "Has traveled to another continent",
+        "tags": [
+            "ice-breaker"
+        ]
     },
     {
         "questionType": "default",
-        "questionText": "19. Lorem ipsum default",
-        "tags": []
-    },
-    {
-        "questionType": "free",
-        "questionText": "20. Lorem ipsum free",
-        "tags": []
-    },
-    {
-        "questionType": "twist",
-        "questionText": "21. Lorem ipsum twist",
-        "tags": []
+        "questionText": "Likes dogs better than cats",
+        "tags": [
+            "ice-breaker"
+        ]
     },
     {
         "questionType": "default",
-        "questionText": "22. Lorem ipsum default",
-        "tags": []
-    },
-    {
-        "questionType": "free",
-        "questionText": "23. Lorem ipsum free",
-        "tags": []
-    },
-    {
-        "questionType": "twist",
-        "questionText": "24. Lorem ipsum twist",
-        "tags": []
+        "questionText": "Made a New Year's Resolution and kept it",
+        "tags": [
+            "ice-breaker"
+        ]
     },
     {
         "questionType": "default",
-        "questionText": "25. Lorem ipsum default",
-        "tags": []
+        "questionText": "Has been scuba diving",
+        "tags": [
+            "ice-breaker"
+        ]
+    },
+    {
+        "questionType": "default",
+        "questionText": "Played a musical instrument",
+        "tags": [
+            "ice-breaker"
+        ]
+    },
+    {
+        "questionType": "default",
+        "questionText": "Has seen the same movie 5 or more times",
+        "tags": [
+            "ice-breaker"
+        ]
+    },
+    {
+        "questionType": "default",
+        "questionText": "Has lied to their parents",
+        "tags": [
+            "ice-breaker"
+        ]
+    },
+    {
+        "questionType": "default",
+        "questionText": "Has multiple siblings",
+        "tags": [
+            "ice-breaker"
+        ]
+    },
+    {
+        "questionType": "default",
+        "questionText": "Likes very spicy food",
+        "tags": [
+            "ice-breaker"
+        ]
+    },
+    {
+        "questionType": "default",
+        "questionText": "Wears socks to bed",
+        "tags": [
+            "ice-breaker"
+        ]
+    },
+    {
+        "questionType": "default",
+        "questionText": "Has climbed a mountain",
+        "tags": [
+            "ice-breaker"
+        ]
+    },
+    {
+        "questionType": "default",
+        "questionText": "Has milked a cow",
+        "tags": [
+            "ice-breaker"
+        ]
+    },
+    {
+        "questionType": "default",
+        "questionText": "Got thrown out of class for being noisy",
+        "tags": [
+            "ice-breaker"
+        ]
+    },
+    {
+        "questionType": "default",
+        "questionText": "Placed a bet (like on sports matches) and won",
+        "tags": [
+            "ice-breaker"
+        ]
+    },
+    {
+        "questionType": "default",
+        "questionText": "Without looking, can tell you what color socks they have",
+        "tags": [
+            "ice-breaker"
+        ]
+    },
+    {
+        "questionType": "open-ended-question",
+        "questionText": "Who has been the biggest influence in your life?",
+        "tags": [
+            "deep"
+        ]
+    },
+    {
+        "questionType": "open-ended-question",
+        "questionText": "What's your favourite place in the entire world?",
+        "tags": [
+            "ice-breaker"
+        ]
+    },
+    {
+        "questionType": "open-ended-question",
+        "questionText": "Favourite movie of all time?",
+        "tags": [
+            "ice-breaker"
+        ]
+    },
+    {
+        "questionType": "open-ended-question",
+        "questionText": "What were you like as a kid?",
+        "tags": [
+            "ice-breaker"
+        ]
+    },
+    {
+        "questionType": "open-ended-question",
+        "questionText": "What would constitute a “perfect” day for you?",
+        "tags": [
+            "ice-breaker"
+        ]
+    },
+    {
+        "questionType": "open-ended-question",
+        "questionText": "What is your most treasured memory?",
+        "tags": [
+            "deep"
+        ]
     }
 ]

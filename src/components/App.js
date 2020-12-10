@@ -12,6 +12,7 @@ const App = () => {
 
       <BingoGame
         data={data}
+        gridSize={5}
       />
     </>
   );
