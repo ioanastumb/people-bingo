@@ -9,9 +9,12 @@ import Container from '@material-ui/core/Container';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import Button from '@material-ui/core/Button';
 import BingoCard from './BingoCard';
 import Emoji from './Emoji';
+import Footer from './Footer';
 import { checkForBingo, getQuestionsOrder, isBingoQuestionAnswered } from '../logic/bingo-logic';
+import { getBingoColor } from '../logic/helpers';
 import './BingoGame.css';
 
 // styling
@@ -39,14 +42,20 @@ const useStyles = makeStyles((theme) => ({
     bottom: theme.spacing(2),
     left: theme.spacing(1),
     margin: theme.spacing(2, 0, 2),
-    fontSize: 34
+    fontSize: '2.5em'
   },
   doubleBingoContent: {
     position: "fixed",
     bottom: theme.spacing(8),
     left: theme.spacing(1),
     margin: theme.spacing(2, 0, 2),
-    fontSize: 22
+    fontSize: '1.6em'
+  },
+  resetButton: {
+    position: "fixed",
+    bottom: theme.spacing(2),
+    right: theme.spacing(1),
+    margin: theme.spacing(2, 0, 2)
   },
   bold: {
     fontWeight: 'bold'
@@ -75,6 +84,9 @@ const useStyles = makeStyles((theme) => ({
     width: props => 100 / props.gridSize + '%',
     boxSizing: 'border-box',
     padding: props => props.spaceBetweenItems * 0.5
+  },
+  footer: {
+    margin: theme.spacing(0, 0, 3)
   }
 }));
 
@@ -85,9 +97,7 @@ function BingoGame({ data, gridSize }) {
   const [isDoubleBingo, setIsDoubleBingo] = useState(false);
 
   useEffect(() => {
-    // let shuffledQuestions = JSON.parse(localStorage.getItem('shuffledQuestions')) || getQuestionsOrder(data);
-    let shuffledQuestions = getQuestionsOrder(data);
-
+    let shuffledQuestions = JSON.parse(localStorage.getItem('shuffledQuestions')) || getQuestionsOrder(data);
     setQuestions(shuffledQuestions);
   }, [data]);
 
@@ -95,10 +105,14 @@ function BingoGame({ data, gridSize }) {
     localStorage.setItem('shuffledQuestions', JSON.stringify(questions))
   }, [questions]);
 
-  const handleOnBlur = (index, answer, reason) => {
+  const handleOnBlur = (index, answer, reason, type) => {
     const updatedQuestions = questions.slice(0);
-    updatedQuestions[index].answer = answer || updatedQuestions[index].answer;
-    updatedQuestions[index].reason = reason || updatedQuestions[index].reason;
+    if (type === 'answer') {
+      updatedQuestions[index].answer = answer;
+    }
+    if (type === 'reason') {
+      updatedQuestions[index].reason = reason;
+    }
     updatedQuestions[index].isAnswered = isBingoQuestionAnswered(updatedQuestions[index]);
     setQuestions(updatedQuestions);
 
@@ -112,6 +126,13 @@ function BingoGame({ data, gridSize }) {
     else if (isRowBingo || isColumnBingo) {
       setBingoCounter(bingoCounter + 1);
     }
+  }
+
+  const handleReset = () => {
+    let shuffledQuestions = getQuestionsOrder(data);
+    setQuestions(shuffledQuestions);
+    setBingoCounter(0);
+    setIsDoubleBingo(false);
   }
 
   return (
@@ -174,24 +195,36 @@ function BingoGame({ data, gridSize }) {
         <Paper elevation={3} className={classes.paper}>
           <div className={classes.container}>
             {
-              questions.map((question, index) => (
-                <div key={index} className={classes.item}>
-
-                  <Card className={classes.card}>
-                    <CardContent>
-                      <BingoCard
-                        index={index}
-                        question={question}
-                        onBlur={handleOnBlur}
-                      />
-                    </CardContent>
-                  </Card>
-
-                </div>
-              ))
+              questions.map((question, index) => {
+                let color = question.isAnswered ? getBingoColor() : question.color;
+                return (
+                  <div key={index} className={classes.item}>
+                    <Card className={classes.card} style={{ backgroundColor: color }}>
+                      <CardContent>
+                        <BingoCard
+                          index={index}
+                          question={question}
+                          onBlur={handleOnBlur}
+                        />
+                      </CardContent>
+                    </Card>
+                  </div>
+                );
+              })
             }
           </div>
         </Paper>
+
+        <div className={classes.footer}>
+          <Footer />
+        </div>
+
+        <div className={classes.resetButton}>
+          <Container maxWidth="sm">
+            <Button variant="contained" onClick={event => handleReset()}> Resetti (the spaghetti)</Button>
+          </Container>
+        </div>
+
       </main >
     </>
   );

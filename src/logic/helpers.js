@@ -9,4 +9,13 @@ const toLowercaseFirstLetter = string => {
     return string.charAt(0).toLowerCase() + string.slice(1);
 }
 
-export { shuffleArray, toLowercaseFirstLetter };
+const getRandomCardBackgroundColor = () => {
+    let colors = ["#ffe289", "#ffd9bd", "#b197aa", "#8399c5", "#faba95", "#f9ebac"];
+    return colors[Math.floor(Math.random() * colors.length)];
+};
+
+const getBingoColor = () => {
+    return "#81c784";
+}
+
+export { shuffleArray, toLowercaseFirstLetter, getRandomCardBackgroundColor, getBingoColor };

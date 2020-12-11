@@ -7,10 +7,14 @@ import './BingoCard.css';
 
 const useStyles = makeStyles((theme) => ({
   title: {
-    fontSize: 14,
+    fontSize: '1em',
   },
   bingoInput: {
     width: '50%'
+  },
+  freeContent: {
+    fontSize: '2.5em',
+    paddingTop: 40
   }
 }));
 
@@ -43,7 +47,6 @@ const BingoCard = ({ index, question, onBlur }) => {
 
 const BingoDefaultCard = ({ index, question, onBlur }) => {
   const classes = useStyles();
-  const guessedColor = question.isAnswered ? "red" : "black";
   const id = "answer-" + index;
 
   return (
@@ -52,26 +55,26 @@ const BingoDefaultCard = ({ index, question, onBlur }) => {
         Find someone who...
       </Typography>
       <br />
-      <span style={{ color: guessedColor }}>{question.questionText}</span>
+
+      <span>{question.questionText}</span>
       <br />
-      <TextField id={id} defaultValue={question.answer} onBlur={event => onBlur(index, event.target.value, null)} />
+
+      <TextField id={id} defaultValue={question.answer} onBlur={event => onBlur(index, event.target.value, null, 'answer')} />
     </>
   )
 }
 
 const BingoFreeCard = ({ question }) => {
-  const guessedColor = question.isAnswered ? "red" : "black";
-
+  const classes = useStyles();
   return (
-    <Typography gutterBottom>
-      <span style={{ color: guessedColor }}>{question.questionText}</span>
+    <Typography className={classes.freeContent} gutterBottom>
+      {question.questionText}
     </Typography>
   )
 }
 
 const BingoComplexCard = ({ index, question, onBlur }) => {
   const classes = useStyles();
-  const guessedColor = question.isAnswered ? "red" : "black";
   const answerId = "answer-" + index;
   const reasonId = "reason-" + index;
 
@@ -80,12 +83,16 @@ const BingoComplexCard = ({ index, question, onBlur }) => {
       <Typography className={classes.title} color="textSecondary" gutterBottom>
         Question time!
       </Typography>
-      <TextField id={answerId} size="small" className={classes.bingoInput} placeholder="who" defaultValue={question.answer} onBlur={event => onBlur(index, event.target.value, null)} />
+
+      <TextField id={answerId} size="small" className={classes.bingoInput}
+        placeholder="who?" defaultValue={question.answer} onBlur={event => onBlur(index, event.target.value, null, 'answer')} />
       <span style={{ fontSize: 24 }}>,</span>
       <br />
-      <span style={{ color: guessedColor }}>{toLowercaseFirstLetter(question.questionText)}</span>
+
+      <span>{toLowercaseFirstLetter(question.questionText)}</span>
       <br />
-      <TextField id={reasonId} placeholder="what" defaultValue={question.answer} onBlur={event => onBlur(index, null, event.target.value)} />
+
+      <TextField id={reasonId} defaultValue={question.answer} onBlur={event => onBlur(index, null, event.target.value, 'reason')} />
     </>
   )
 }

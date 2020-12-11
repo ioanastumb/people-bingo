@@ -1,10 +1,9 @@
 [
     {
-        "questionType": "free",
-        "questionText": "FREE!",
+        "questionType": "default",
+        "questionText": "Knows 2 or more foreign languages",
         "tags": [
-            "ice-breaker",
-            "free"
+            "ice-breaker"
         ]
     },
     {
@@ -114,7 +113,7 @@
     },
     {
         "questionType": "default",
-        "questionText": "Got thrown out of class for being noisy",
+        "questionText": "Got thrown out of class in school",
         "tags": [
             "ice-breaker"
         ]

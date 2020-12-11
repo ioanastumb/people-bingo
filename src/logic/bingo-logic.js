@@ -1,4 +1,4 @@
-import { shuffleArray } from './helpers';
+import { shuffleArray, getRandomCardBackgroundColor, getBingoColor } from './helpers';
 
 const getQuestionsOrder = (questions) => {
     let shuffledQuestions = questions.slice(0);
@@ -10,7 +10,8 @@ const getQuestionsOrder = (questions) => {
             questionText: shuffledQuestion.questionText,
             answer: null,
             reason: null,
-            isAnswered: shuffledQuestion.questionType === 'free' ? true : false
+            isAnswered: shuffledQuestion.questionType === 'free' ? true : false,
+            color: shuffledQuestion.questionType === 'free' ? getBingoColor() : getRandomCardBackgroundColor()
         }
     });
 };
