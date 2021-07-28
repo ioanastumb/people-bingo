@@ -19,15 +19,24 @@ import './BingoGame.css';
 
 // styling
 const useStyles = makeStyles((theme) => ({
-  layout: {
+  generalLayout: {
     width: 'auto',
     marginLeft: theme.spacing(2),
     marginRight: theme.spacing(2),
     [theme.breakpoints.up(600 + theme.spacing(2) * 2)]: {
-      width: 1200,
       marginLeft: 'auto',
       marginRight: 'auto'
     },
+  },
+  introLayout: {
+    [theme.breakpoints.up(600 + theme.spacing(2) * 2)]: {
+      width: 1200,
+    }
+  },
+  gameLayout: {
+    [theme.breakpoints.up(600 + theme.spacing(2) * 2)]: {
+      width: props => (1200 * props.gridSize) / 5,
+    }
   },
   heroContent: {
     backgroundColor: theme.palette.background.paper,
@@ -138,7 +147,8 @@ function BingoGame({ data, gridSize }) {
   return (
     <>
       <CssBaseline />
-      <main className={classes.layout}>
+
+      <div className={`${classes.generalLayout} ${classes.introLayout}`}>
         <div className={classes.heroContent}>
           <Container maxWidth="sm">
             <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
@@ -146,6 +156,7 @@ function BingoGame({ data, gridSize }) {
             </Typography>
           </Container>
         </div>
+        
         <div className={classes.sidekickContent}>
           <Container maxWidth="md">
             <List>
@@ -172,7 +183,9 @@ function BingoGame({ data, gridSize }) {
             </List>
           </Container>
         </div>
-
+      </div>
+      
+      <main className={`${classes.generalLayout} ${classes.gameLayout}`}>
         <div className={classes.bingoContent}>
           <Container maxWidth="sm">
             {
@@ -224,7 +237,6 @@ function BingoGame({ data, gridSize }) {
             <Button variant="contained" onClick={event => handleReset()}> Resetti (the spaghetti)</Button>
           </Container>
         </div>
-
       </main >
     </>
   );
