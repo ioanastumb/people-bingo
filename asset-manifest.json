@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/people-bingo/static/css/main.a4974ebb.chunk.css",
-    "main.js": "/people-bingo/static/js/main.80798049.chunk.js",
-    "main.js.map": "/people-bingo/static/js/main.80798049.chunk.js.map",
+    "main.css": "/people-bingo/static/css/main.17468d39.chunk.css",
+    "main.js": "/people-bingo/static/js/main.c5df1cb7.chunk.js",
+    "main.js.map": "/people-bingo/static/js/main.c5df1cb7.chunk.js.map",
     "runtime-main.js": "/people-bingo/static/js/runtime-main.9a97c5f2.js",
     "runtime-main.js.map": "/people-bingo/static/js/runtime-main.9a97c5f2.js.map",
-    "static/js/2.f4276d11.chunk.js": "/people-bingo/static/js/2.f4276d11.chunk.js",
-    "static/js/2.f4276d11.chunk.js.map": "/people-bingo/static/js/2.f4276d11.chunk.js.map",
+    "static/js/2.39f96a1c.chunk.js": "/people-bingo/static/js/2.39f96a1c.chunk.js",
+    "static/js/2.39f96a1c.chunk.js.map": "/people-bingo/static/js/2.39f96a1c.chunk.js.map",
     "index.html": "/people-bingo/index.html",
-    "static/css/main.a4974ebb.chunk.css.map": "/people-bingo/static/css/main.a4974ebb.chunk.css.map",
-    "static/js/2.f4276d11.chunk.js.LICENSE.txt": "/people-bingo/static/js/2.f4276d11.chunk.js.LICENSE.txt"
+    "static/css/main.17468d39.chunk.css.map": "/people-bingo/static/css/main.17468d39.chunk.css.map",
+    "static/js/2.39f96a1c.chunk.js.LICENSE.txt": "/people-bingo/static/js/2.39f96a1c.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.9a97c5f2.js",
-    "static/js/2.f4276d11.chunk.js",
-    "static/css/main.a4974ebb.chunk.css",
-    "static/js/main.80798049.chunk.js"
+    "static/js/2.39f96a1c.chunk.js",
+    "static/css/main.17468d39.chunk.css",
+    "static/js/main.c5df1cb7.chunk.js"
   ]
 }
