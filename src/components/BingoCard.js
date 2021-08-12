@@ -92,7 +92,7 @@ const BingoComplexCard = ({ index, question, onBlur }) => {
       <span>{toLowercaseFirstLetter(question.questionText)}</span>
       <br />
 
-      <TextField id={reasonId} defaultValue={question.answer} onBlur={event => onBlur(index, null, event.target.value, 'reason')} />
+      <TextField id={reasonId} defaultValue={question.reason} onBlur={event => onBlur(index, null, event.target.value, 'reason')} />
     </>
   )
 }
