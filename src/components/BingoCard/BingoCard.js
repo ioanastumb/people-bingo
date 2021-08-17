@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
-import { toLowercaseFirstLetter } from '../logic/helpers';
+import { toLowercaseFirstLetter } from '../../logic/helpers';
 import './BingoCard.css';
 
 const useStyles = makeStyles((theme) => ({

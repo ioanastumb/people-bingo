@@ -1,7 +1,7 @@
 import './App.css';
 import { Helmet } from 'react-helmet';
-import BingoGame from './BingoGame';
-import data from '../data.json';
+import BingoGame from '../BingoGame/BingoGame';
+import data from '../../data.json';
 
 const App = () => {
   return (

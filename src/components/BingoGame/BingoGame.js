@@ -10,11 +10,11 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Button from '@material-ui/core/Button';
-import BingoCard from './BingoCard';
-import Emoji from './Emoji';
-import Footer from './Footer';
-import { checkForBingo, getQuestionsOrder, isBingoQuestionAnswered } from '../logic/bingo-logic';
-import { getBingoColor } from '../logic/helpers';
+import BingoCard from '../BingoCard/BingoCard';
+import Emoji from '../Emoji';
+import Footer from '../Footer';
+import { checkForBingo, getQuestionsOrder, isBingoQuestionAnswered } from '../../logic/bingo-logic';
+import { getBingoColor } from '../../logic/helpers';
 import './BingoGame.css';
 
 // styling
