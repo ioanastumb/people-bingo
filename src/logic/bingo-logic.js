@@ -8,8 +8,8 @@ const getQuestionsOrder = (questions) => {
         return {
             questionType: shuffledQuestion.questionType,
             questionText: shuffledQuestion.questionText,
-            answer: null,
-            reason: null,
+            answer: '',
+            reason: '',
             isAnswered: shuffledQuestion.questionType === 'free' ? true : false,
             color: shuffledQuestion.questionType === 'free' ? getBingoColor() : getRandomCardBackgroundColor()
         }
