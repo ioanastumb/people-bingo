@@ -55,6 +55,17 @@ const BingoGame = ({ data, gridSize }) => {
     }
   }
 
+  const handleOnChange = (index, answer, reason, type) => { 
+    const updatedQuestions = questions.slice(0);
+    if (type === 'answer') {
+      updatedQuestions[index].answer = answer;
+    }
+    if (type === 'reason') {
+      updatedQuestions[index].reason = reason;
+    }
+    setQuestions(updatedQuestions);
+  }
+
   const handleReset = () => {
     let shuffledQuestions = getQuestionsOrder(data);
     setQuestions(shuffledQuestions);
@@ -135,6 +146,7 @@ const BingoGame = ({ data, gridSize }) => {
                         <BingoCard
                           index={index}
                           incomingQuestion={question}
+                          onChange={handleOnChange}
                           onBlur={handleOnBlur}
                         />
                       </CardContent>

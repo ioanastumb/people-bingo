@@ -4,7 +4,7 @@ import BingoFreeCard from './BingoFreeCard';
 import BingoComplexCard from './BingoComplexCard';
 import './BingoCard.css';
 
-const BingoCard = ({ index, incomingQuestion, onBlur }) => {
+const BingoCard = ({ index, incomingQuestion, onChange, onBlur }) => {
   return (
     <div className="bingo-card">
       {
@@ -12,12 +12,13 @@ const BingoCard = ({ index, incomingQuestion, onBlur }) => {
         <BingoDefaultCard
           index={index}
           incomingQuestion={incomingQuestion}
+          onChange={onChange}
           onBlur={onBlur} />
       }
       {
         incomingQuestion.questionType === 'free' &&
         <BingoFreeCard
-        incomingQuestion={incomingQuestion}
+          incomingQuestion={incomingQuestion}
         />
       }
       {
@@ -25,6 +26,7 @@ const BingoCard = ({ index, incomingQuestion, onBlur }) => {
         <BingoComplexCard
           index={index}
           incomingQuestion={incomingQuestion}
+          onChange={onChange}
           onBlur={onBlur} />
       }
     </div>

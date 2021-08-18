@@ -3,7 +3,7 @@ import Typography from '@material-ui/core/Typography';
 import useStyles from './styling';
 import { toLowercaseFirstLetter } from '../../logic/helpers';
 
-const BingoComplexCard = ({ index, incomingQuestion, onBlur }) => {
+const BingoComplexCard = ({ index, incomingQuestion, onChange, onBlur }) => {
     const classes = useStyles();
     const answerId = "answer-" + index;
     const reasonId = "reason-" + index;
@@ -14,15 +14,19 @@ const BingoComplexCard = ({ index, incomingQuestion, onBlur }) => {
                 Question time!
             </Typography>
 
-            <TextField id={answerId} size="small" className={classes.bingoInput}
-                placeholder="who?" defaultValue={incomingQuestion.answer} onBlur={event => onBlur(index, event.target.value, null, 'answer')} />
+            <TextField id={answerId} size="small" className={classes.bingoInput} autoComplete="off"
+                placeholder="who?" value={incomingQuestion.answer}
+                onChange={event => onChange(index, event.target.value, '', 'answer')}
+                onBlur={event => onBlur(index, event.target.value, '', 'answer')} />
             <span style={{ fontSize: 24 }}>,</span>
             <br />
 
             <span>{toLowercaseFirstLetter(incomingQuestion.questionText)}</span>
             <br />
 
-            <TextField id={reasonId} defaultValue={incomingQuestion.reason} onBlur={event => onBlur(index, null, event.target.value, 'reason')} />
+            <TextField id={reasonId} value={incomingQuestion.reason} autoComplete="off"
+                onChange={event => onChange(index, '', event.target.value, 'reason')}
+                onBlur={event => onBlur(index, '', event.target.value, 'reason')} />
         </>
     )
 }
