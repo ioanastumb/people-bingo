@@ -3,7 +3,7 @@ import Typography from '@material-ui/core/Typography';
 import useStyles from './styling';
 import { toLowercaseFirstLetter } from '../../logic/helpers';
 
-const BingoComplexCard = ({ index, incomingQuestion, onChange, onBlur }) => {
+const BingoComplexCard = ({ index, question, onChange, onBlur }) => {
     const classes = useStyles();
     const answerId = "answer-" + index;
     const reasonId = "reason-" + index;
@@ -15,16 +15,16 @@ const BingoComplexCard = ({ index, incomingQuestion, onChange, onBlur }) => {
             </Typography>
 
             <TextField id={answerId} size="small" className={classes.bingoInput} autoComplete="off"
-                placeholder="who?" value={incomingQuestion.answer}
+                placeholder="who?" value={question.answer}
                 onChange={event => onChange(index, event.target.value, '', 'answer')}
                 onBlur={event => onBlur(index, event.target.value, '', 'answer')} />
             <span style={{ fontSize: 24 }}>,</span>
             <br />
 
-            <span>{toLowercaseFirstLetter(incomingQuestion.questionText)}</span>
+            <span>{toLowercaseFirstLetter(question.questionText)}</span>
             <br />
 
-            <TextField id={reasonId} value={incomingQuestion.reason} autoComplete="off"
+            <TextField id={reasonId} value={question.reason} autoComplete="off"
                 onChange={event => onChange(index, '', event.target.value, 'reason')}
                 onBlur={event => onBlur(index, '', event.target.value, 'reason')} />
         </>

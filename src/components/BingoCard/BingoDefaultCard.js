@@ -2,7 +2,7 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import useStyles from './styling';
 
-const BingoDefaultCard = ({ index, incomingQuestion, onChange, onBlur }) => {
+const BingoDefaultCard = ({ index, question, onChange, onBlur }) => {
     const classes = useStyles();
     const id = "answer-" + index;
 
@@ -13,10 +13,10 @@ const BingoDefaultCard = ({ index, incomingQuestion, onChange, onBlur }) => {
             </Typography>
             <br />
 
-            <span>{incomingQuestion.questionText}</span>
+            <span>{question.questionText}</span>
             <br />
 
-            <TextField id={id} value={incomingQuestion.answer} autoComplete="off"
+            <TextField id={id} value={question.answer} autoComplete="off"
                 onChange={event => onChange(index, event.target.value, '', 'answer')}
                 onBlur={event => onBlur(index, event.target.value, '', 'answer')} />
         </>
