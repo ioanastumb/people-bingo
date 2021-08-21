@@ -145,7 +145,7 @@ const BingoGame = ({ data, gridSize }) => {
                       <CardContent>
                         <BingoCard
                           index={index}
-                          incomingQuestion={question}
+                          question={question}
                           onChange={handleOnChange}
                           onBlur={handleOnBlur}
                         />

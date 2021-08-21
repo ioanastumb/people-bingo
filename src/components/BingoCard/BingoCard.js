@@ -4,28 +4,28 @@ import BingoFreeCard from './BingoFreeCard';
 import BingoComplexCard from './BingoComplexCard';
 import './BingoCard.css';
 
-const BingoCard = ({ index, incomingQuestion, onChange, onBlur }) => {
+const BingoCard = ({ index, question, onChange, onBlur }) => {
   return (
     <div className="bingo-card">
       {
-        incomingQuestion.questionType === 'default' &&
+        question.questionType === 'default' &&
         <BingoDefaultCard
           index={index}
-          incomingQuestion={incomingQuestion}
+          question={question}
           onChange={onChange}
           onBlur={onBlur} />
       }
       {
-        incomingQuestion.questionType === 'free' &&
+        question.questionType === 'free' &&
         <BingoFreeCard
-          incomingQuestion={incomingQuestion}
+        question={question}
         />
       }
       {
-        incomingQuestion.questionType === 'open-ended-question' &&
+        question.questionType === 'open-ended-question' &&
         <BingoComplexCard
           index={index}
-          incomingQuestion={incomingQuestion}
+          question={question}
           onChange={onChange}
           onBlur={onBlur} />
       }

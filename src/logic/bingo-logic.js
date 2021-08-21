@@ -1,4 +1,5 @@
 import { shuffleArray, getRandomCardBackgroundColor, getBingoColor } from './helpers';
+import { createQuestion } from './question.js';
 
 const getQuestionsOrder = (questions) => {
     let shuffledQuestions = questions.slice(0);
@@ -6,10 +7,7 @@ const getQuestionsOrder = (questions) => {
 
     return shuffledQuestions.map(shuffledQuestion => {
         return {
-            questionType: shuffledQuestion.questionType,
-            questionText: shuffledQuestion.questionText,
-            answer: '',
-            reason: '',
+            ...createQuestion(shuffledQuestion.questionType, shuffledQuestion.questionText),
             isAnswered: shuffledQuestion.questionType === 'free' ? true : false,
             color: shuffledQuestion.questionType === 'free' ? getBingoColor() : getRandomCardBackgroundColor()
         }
