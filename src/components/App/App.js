@@ -11,7 +11,7 @@ const App = () => {
       </Helmet>
 
       <Router>
-        <GameWrapper path="/" />
+        <GameWrapper path="/people-bingo" />
       </Router>
     </>
   );
