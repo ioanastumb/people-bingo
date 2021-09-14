@@ -18,7 +18,7 @@ const BingoCard = ({ index, question, onChange, onBlur }) => {
       {
         question.questionType === 'free' &&
         <BingoFreeCard
-        question={question}
+          question={question}
         />
       }
       {
