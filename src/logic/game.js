@@ -1,8 +1,16 @@
+import { isEmpty } from "./helpers";
+
 const createGame = (gameId, games, questions) => {
+
+    if (isEmpty(gameId) || isEmpty(games) || isEmpty(questions)) {
+        return {
+            isValid: false
+        }
+    }
+
     let gameDefinition = games.find(game => game.gameId === gameId);
 
-    //TODO: better JS null check
-    if (gameDefinition === null || gameDefinition === undefined) {
+    if (isEmpty(gameDefinition)) {
         return {
             isValid: false
         }
@@ -12,8 +20,7 @@ const createGame = (gameId, games, questions) => {
         return questions.find(questions => questions.questionId === questionId);
     });
 
-    //TODO: better JS null check 
-    if (matchedQuestions === null || matchedQuestions === undefined || matchedQuestions === []) {
+    if (isEmpty(matchedQuestions) || matchedQuestions === []) {
         return {
             isValid: false
         }
@@ -21,6 +28,7 @@ const createGame = (gameId, games, questions) => {
 
     return {
         isValid: true,
+        gameId: gameId,
         gridSize: gameDefinition.gridSize,
         questions: matchedQuestions
     }

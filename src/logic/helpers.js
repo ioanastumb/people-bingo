@@ -18,4 +18,8 @@ const getBingoColor = () => {
     return "#81c784";
 }
 
-export { shuffleArray, toLowercaseFirstLetter, getRandomCardBackgroundColor, getBingoColor };
+const isEmpty = (value) => {
+    return !(typeof value !== 'undefined' && value);
+}
+
+export { shuffleArray, toLowercaseFirstLetter, getRandomCardBackgroundColor, getBingoColor, isEmpty };

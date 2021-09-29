@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Paper from '@material-ui/core/Paper';
 import Card from '@material-ui/core/Card';
@@ -13,65 +12,11 @@ import BingoCard from '../BingoCard/BingoCard';
 import Emoji from '../Emoji';
 import Footer from '../Footer';
 import useStyles from './styling';
-import { checkForBingo, getQuestionsOrder, isBingoQuestionAnswered } from '../../logic/bingo-logic';
 import { getBingoColor } from '../../logic/helpers';
 import './BingoGame.css';
 
-const BingoGame = ({ data, gridSize }) => {
+const BingoGame = ({ gameId, gridSize, questions, onChange, onBlur, handleReset, bingoCounter, isDoubleBingo }) => {
   const classes = useStyles({ gridSize: gridSize, spaceBetweenItems: 20 });
-  const [questions, setQuestions] = useState([]);
-  const [bingoCounter, setBingoCounter] = useState(0);
-  const [isDoubleBingo, setIsDoubleBingo] = useState(false);
-
-  useEffect(() => {
-    let shuffledQuestions = JSON.parse(localStorage.getItem('shuffledQuestions')) || getQuestionsOrder(data);
-    setQuestions(shuffledQuestions);
-  }, [data]);
-
-  useEffect(() => {
-    localStorage.setItem('shuffledQuestions', JSON.stringify(questions))
-  }, [questions]);
-
-  const handleOnBlur = (index, answer, reason, type) => {
-    const updatedQuestions = questions.slice(0);
-    if (type === 'answer') {
-      updatedQuestions[index].answer = answer;
-    }
-    if (type === 'reason') {
-      updatedQuestions[index].reason = reason;
-    }
-    updatedQuestions[index].isAnswered = isBingoQuestionAnswered(updatedQuestions[index]);
-    setQuestions(updatedQuestions);
-
-    let isRowBingo = checkForBingo(updatedQuestions, index, 'row', gridSize);
-    let isColumnBingo = checkForBingo(updatedQuestions, index, 'column', gridSize);
-
-    if (isRowBingo && isColumnBingo) {
-      setBingoCounter(bingoCounter + 2);
-      setIsDoubleBingo(true);
-    }
-    else if (isRowBingo || isColumnBingo) {
-      setBingoCounter(bingoCounter + 1);
-    }
-  }
-
-  const handleOnChange = (index, answer, reason, type) => { 
-    const updatedQuestions = questions.slice(0);
-    if (type === 'answer') {
-      updatedQuestions[index].answer = answer;
-    }
-    if (type === 'reason') {
-      updatedQuestions[index].reason = reason;
-    }
-    setQuestions(updatedQuestions);
-  }
-
-  const handleReset = () => {
-    let shuffledQuestions = getQuestionsOrder(data);
-    setQuestions(shuffledQuestions);
-    setBingoCounter(0);
-    setIsDoubleBingo(false);
-  }
 
   return (
     <>
@@ -146,8 +91,8 @@ const BingoGame = ({ data, gridSize }) => {
                         <BingoCard
                           index={index}
                           question={question}
-                          onChange={handleOnChange}
-                          onBlur={handleOnBlur}
+                          onChange={onChange}
+                          onBlur={onBlur}
                         />
                       </CardContent>
                     </Card>
@@ -164,7 +109,7 @@ const BingoGame = ({ data, gridSize }) => {
 
         <div className={classes.resetButton}>
           <Container maxWidth="sm">
-            <Button variant="contained" onClick={event => handleReset()}> Resetti (the spaghetti)</Button>
+            <Button variant="contained" onClick={event => handleReset()}>Reset</Button>
           </Container>
         </div>
       </main >
