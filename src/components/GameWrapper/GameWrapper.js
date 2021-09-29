@@ -22,10 +22,12 @@ const GameWrapper = ({ gameId, games, questions}) => {
   
       setGameSessions(storageSessions);
     }
-  }, [game.gameId, game.questions]);
+  }, [game]);
 
   useEffect(() => {
-    localStorage.setItem('gameSessions', JSON.stringify(gameSessions))
+    if (Object.keys(gameSessions).length !== 0) {
+      localStorage.setItem('gameSessions', JSON.stringify(gameSessions))
+    }
   }, [gameSessions]);
 
   const handleOnChange = (index, answer, reason, type) => {
