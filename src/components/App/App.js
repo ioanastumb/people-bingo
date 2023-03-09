@@ -4,6 +4,7 @@ import { Router } from "@reach/router"
 import GameWrapper from '../GameWrapper/GameWrapper';
 import questions from '../../questions.json';
 import games from '../../games.json';
+import GameBuilder from '../GameBuilder/GameBuilder';
 
 const App = () => {
   return (
@@ -14,14 +15,19 @@ const App = () => {
 
       <Router>
         <GameWrapper
-          path="/people-bingo/games/:gameId" 
+          path="/people-bingo/games/:gameId"
           games={games}
           questions={questions} />
-        <GameWrapper 
+        <GameBuilder
+          isInvalidGame={false}
+          questions={questions}
+          default
+        />
+        {/* <GameWrapper 
           default
           gameId={"g1"}
           games={games}
-          questions={questions} />
+          questions={questions} /> */}
       </Router>
     </>
   );

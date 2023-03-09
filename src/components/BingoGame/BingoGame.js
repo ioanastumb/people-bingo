@@ -10,7 +10,6 @@ import useStyles from './styling';
 import { getBingoColor } from '../../logic/helpers';
 import Title from '../Title';
 import Rules from '../Rules';
-import './BingoGame.css';
 
 const BingoGame = ({ gameId, gridSize, questions, onChange, onBlur, handleReset, bingoCounter, isDoubleBingo }) => {
   const classes = useStyles({ gridSize: gridSize, spaceBetweenItems: 20 });
@@ -20,10 +19,10 @@ const BingoGame = ({ gameId, gridSize, questions, onChange, onBlur, handleReset,
       <CssBaseline />
 
       <div className={`${classes.generalLayout} ${classes.introLayout}`}>
-        <Title />        
-        <Rules />
+        <Title />
+        {/* <Rules /> */}
       </div>
-      
+
       <main className={`${classes.generalLayout} ${classes.gameLayout}`}>
         <div className={classes.bingoContent}>
           <Container maxWidth="sm">

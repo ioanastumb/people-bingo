@@ -4,7 +4,7 @@ import BingoFreeCard from './BingoFreeCard';
 import BingoComplexCard from './BingoComplexCard';
 import './BingoCard.css';
 
-const BingoCard = ({ index, question, onChange, onBlur }) => {
+const BingoCard = ({ index, question, onChange, onBlur, isFromBuilder }) => {
   return (
     <div className="bingo-card">
       {
@@ -13,12 +13,14 @@ const BingoCard = ({ index, question, onChange, onBlur }) => {
           index={index}
           question={question}
           onChange={onChange}
-          onBlur={onBlur} />
+          onBlur={onBlur}
+          isFromBuilder={isFromBuilder} />
       }
       {
         question.questionType === 'free' &&
         <BingoFreeCard
           question={question}
+          isFromBuilder={isFromBuilder}
         />
       }
       {
@@ -27,7 +29,8 @@ const BingoCard = ({ index, question, onChange, onBlur }) => {
           index={index}
           question={question}
           onChange={onChange}
-          onBlur={onBlur} />
+          onBlur={onBlur}
+          isFromBuilder={isFromBuilder} />
       }
     </div>
   );

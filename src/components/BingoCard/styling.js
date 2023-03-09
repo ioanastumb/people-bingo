@@ -9,7 +9,14 @@ const useStyles = makeStyles((theme) => ({
     },
     freeContent: {
         fontSize: '2.5em',
-        paddingTop: 40
+        paddingTop: 10
+    },
+    cardHeader: {
+        display: "flex"
+    },
+    cardHeaderButton: {
+        marginLeft: "auto",
+        order: 2
     }
 }));
 

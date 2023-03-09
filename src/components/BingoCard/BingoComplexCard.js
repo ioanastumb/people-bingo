@@ -1,18 +1,28 @@
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
 import useStyles from './styling';
 import { toLowercaseFirstLetter } from '../../logic/helpers';
 
-const BingoComplexCard = ({ index, question, onChange, onBlur }) => {
+const BingoComplexCard = ({ index, question, onChange, onBlur, isFromBuilder }) => {
     const classes = useStyles();
     const answerId = "answer-" + index;
     const reasonId = "reason-" + index;
 
     return (
         <>
-            <Typography className={classes.title} color="textSecondary" gutterBottom>
-                Question time!
-            </Typography>
+            <div className={classes.cardHeader}>
+                <Typography className={classes.title} color="textSecondary" gutterBottom>
+                    Question time!
+                </Typography>
+
+                {
+                    isFromBuilder &&
+                    <div className={classes.cardHeaderButton}>
+                        <Button size="small" variant="outlined" disableElevation>Add me!</Button>
+                    </div>
+                }
+            </div>
 
             <TextField id={answerId} size="small" className={classes.bingoInput} autoComplete="off"
                 placeholder="who?" value={question.answer}

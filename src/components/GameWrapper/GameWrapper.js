@@ -4,22 +4,23 @@ import BingoGame from '../BingoGame/BingoGame';
 import { createGame } from '../../logic/game';
 import { checkForBingo, getQuestionsOrder, isBingoQuestionAnswered } from '../../logic/bingo-logic';
 import { isEmpty } from '../../logic/helpers';
+import GameBuilder from '../GameBuilder/GameBuilder';
 
-const GameWrapper = ({ gameId, games, questions}) => {
+const GameWrapper = ({ gameId, games, questions }) => {
   const [game] = useState(createGame(gameId, games, questions));
   const [gameSessions, setGameSessions] = useState({});
   const [bingoCounter, setBingoCounter] = useState(0);
-  const [isDoubleBingo, setIsDoubleBingo] = useState(false); 
+  const [isDoubleBingo, setIsDoubleBingo] = useState(false);
 
   useEffect(() => {
     if (game.isValid) {
-      let storageSessions = JSON.parse(localStorage.getItem('gameSessions')) || {}; 
+      let storageSessions = JSON.parse(localStorage.getItem('gameSessions')) || {};
 
       if (isEmpty(storageSessions[game.gameId])) {
         let shuffledQuestions = getQuestionsOrder(game.questions);
         storageSessions[game.gameId] = shuffledQuestions;
       }
-  
+
       setGameSessions(storageSessions);
     }
   }, [game]);
@@ -31,7 +32,7 @@ const GameWrapper = ({ gameId, games, questions}) => {
   }, [gameSessions]);
 
   const handleOnChange = (index, answer, reason, type) => {
-    let currentGameSessions = {...gameSessions};
+    let currentGameSessions = { ...gameSessions };
     if (type === 'answer') {
       currentGameSessions[game.gameId][index].answer = answer;
     }
@@ -42,7 +43,7 @@ const GameWrapper = ({ gameId, games, questions}) => {
   }
 
   const handleOnBlur = (index, answer, reason, type) => {
-    let currentGameSessions = {...gameSessions};
+    let currentGameSessions = { ...gameSessions };
     if (type === 'answer') {
       currentGameSessions[game.gameId][index].answer = answer;
     }
@@ -65,7 +66,7 @@ const GameWrapper = ({ gameId, games, questions}) => {
   }
 
   const handleReset = () => {
-    let currentGameSessions = {...gameSessions};
+    let currentGameSessions = { ...gameSessions };
     let shuffledQuestions = getQuestionsOrder(currentGameSessions[game.gameId]);
     currentGameSessions[game.gameId] = shuffledQuestions;
     setGameSessions(currentGameSessions);
@@ -92,13 +93,9 @@ const GameWrapper = ({ gameId, games, questions}) => {
 
       {
         !game.isValid &&
-        <p>
-          Oops!
-          <br /><br />
-          We couldn't find any game session with the given URL.
-          <br /><br />
-          Maybe you mistyped a letter (happens to all of us, right?)
-        </p>
+        <GameBuilder
+          isInvalidGame={true}
+        />
       }
     </>
   );

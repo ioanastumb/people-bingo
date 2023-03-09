@@ -198,5 +198,13 @@
         "tags": [
             "deep"
         ]
+    },
+    {
+        "questionId": "q25",
+        "questionType": "free",
+        "questionText": "Free!",
+        "tags": [
+            "free"
+        ]
     }
 ]
